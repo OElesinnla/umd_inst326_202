@@ -1,1 +1,1 @@
-" A Trivia Game with sports, history and math related questions."
+" A Trivia Game with sports, history and math related questions." 
