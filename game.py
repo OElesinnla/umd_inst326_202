@@ -12,4 +12,4 @@ class game:
         if chose medium and got less than 15/20 then fail
         If chose hard and got less than 18/20 then fail
         will check after all questions have been answered"""
-        
+        "hi"
