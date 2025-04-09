@@ -19,8 +19,7 @@ class Question:
         self.category = category
         self.difficulty = difficulty
         
-    def score():
-        pass
+
 
 class MathQuestion(Question):
     """A question which requires an algebra problem to be solved.
@@ -74,3 +73,9 @@ class Game:
         if chose medium and got less than 15/20 then fail
         If chose hard and got less than 18/20 then fail
         will check after all questions have been answered"""
+    def score(self)
+        """Calculates a player's score based on how many questions the player
+        gets right.
+        There will be a counter that keeps track of the number of question the
+        player gets right based on the data file provided by the user
+        """
