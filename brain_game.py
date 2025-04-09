@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 class Question:
@@ -16,3 +17,6 @@ class Question:
         self.answer = answer
         self.category = category
         self.difficulty = difficulty
+=======
+" A Trivia Game with sports, history and math related questions." 
+>>>>>>> 3ad027b41b4cadff3e23ad335bff415980f4029d
