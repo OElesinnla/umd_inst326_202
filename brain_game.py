@@ -20,7 +20,7 @@ class Question:
         self.difficulty = difficulty
         
     def score():
-      pass
+        pass
 
 class MathQuestion(Question):
     """A question which requires an algebra problem to be solved.
@@ -47,14 +47,27 @@ class MathQuestion(Question):
         """
         ...
     
-class game:
-     def difficulty(option):
-         """This function will let the user choose the difficulty.
+class Game:
+    """A game played with turns. Initializes with settings.
+
+    Attributes:
+        player (str): Information about the player.
+        difficulty (str): The defined difficulty of the game.
+        score (int): The player's score.
+    """
+    def __init__(self, playername):
+        self.player = playername
+        self.difficulty = ''
+        self.score = 0
+
+    def set_difficulty(self, option):
+        """This function will let the user choose the difficulty.
         The three options are easy, medium, hard.
         Easy option will require the player to asnwer 10/20 to win
         Medium will require 15/20 to win
         Hard will require 18/20 to win"""
-     def fail(self):
+
+    def is_fail(self):
         """This method will check if the player did not achieve the goal from 
         the desired difficulty.
         If chose easy and got less than 10/20 then fail and print message
