@@ -21,6 +21,31 @@ class Question:
         
     def score():
       pass
+
+class MathQuestion(Question):
+    """A question which requires an algebra problem to be solved.
+    The question's answer will be randomly created by substituting one value
+    from the prompt for a variable.
+    """
+    def __init__(self, prompt, category, difficulty):
+        prompt, answer = self.substitute_answer_for_x(prompt)
+        super().__init__(prompt, answer, category, difficulty)
+
+    def substitute_answer_for_x(self, prompt) -> tuple[str, int]:
+        """Substitute one numeric value in prompt for a variable and return the
+        substituted prompt as well as the value removed.
+
+        Args:
+            prompt (str): A true equation with operators and numeric values.
+        Returns:
+            tuple: The prompt with a variable substituted in place of a value, 
+            and that value which was substituted out.
+        Raises:
+            ValueError: If the prompt was not a true equation.
+            NotImplementedError: If the prompt contains an unsupported operation
+                (anything other than +, -, *, /, **, sqrt)
+        """
+        ...
     
 class game:
      def difficulty(option):
