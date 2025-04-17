@@ -1,0 +1,13 @@
+
+
+""" 
+layout for middle cards (shuffle one deck and pass out 13 cards to player)
+"""
+import random
+def shuffle_and_deal(deck: list[Card], num_cards=13) ->list:
+    """
+    shuffle the deck and deal num_cards which is 13 
+    """
+    
+    
+    
