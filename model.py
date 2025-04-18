@@ -28,16 +28,14 @@ def choose_next_card(hand_cards: list[Card],
     # 5- return when there's only one card in hand left, or when depth is 0
     # (you could ignore depth if you felt like it)
     
-def validate_input(card):
-    if player_input !=:
+def validate_input(player_input, hand_cards):
+    if player_input.isalpha == False:
+        raise ValueError ("Invalid input")
+    if not isinstance (player_input, card.alias):
         raise ValueError
-    elif player_input not in hand_cards:
-        raise ValueError
+    if player_input not in hand_cards:
+        raise ValueError ("Not in your deck")
     else:
         return player_input 
-   
-     
-    # if player_input is a integer/ letter
-    # if player_input is in player's deck 
     
-        
+    
