@@ -1,13 +1,19 @@
 import model, view
 
-def main():
-    adder = model.Adder()
-    val = 0
+def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
+    ...
+    # while True OR while middle
+    # p_in = input()
+    # if move_algorithm.validate_input(p_in, p1hand)
+    # determine_winner()
 
-    while True:
-        view.render(val)
-        adder.prompt()
-        val = adder.get_sum()
+def main():
+    p1 = model.pick_cards()
+    p2 = model.pick_cards()
+    middle = model.pick_cards()
+    middle = middle.shuffle()
+
+    winner = game_turns(p1, p2, middle)
 
 if __name__ == '__main__':
     main()
