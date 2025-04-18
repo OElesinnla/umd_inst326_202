@@ -13,7 +13,7 @@ class Card:
     """
     number: int
     alias: str = field(init=False)
-    suit: str = 'generic'
+    suit: str = ''
 
     def __post_init__(self):
         match self.number:
@@ -30,6 +30,13 @@ class Card:
 
     def __eq__(self, other: 'Card'):
         return self.number == other.number
+    
+    def __lt__(self, other: 'Card'):
+        return other.number < 10 if self.number == 0 \
+            else self.number < other.number
+    def __gt__(self, other: 'Card'):
+        return other.number >= 10 if self.number == 0 \
+            else self.number > other.number
     
     def __hash__(self):
         return self.number
