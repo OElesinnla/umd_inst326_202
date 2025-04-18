@@ -29,7 +29,14 @@ def choose_next_card(hand_cards: list[Card],
     # (you could ignore depth if you felt like it)
     
 def validate_input(card):
-    ...
+    if player_input !=:
+        raise ValueError
+    elif player_input not in hand_cards:
+        raise ValueError
+    else:
+        return player_input 
+   
+     
     # if player_input is a integer/ letter
     # if player_input is in player's deck 
     
