@@ -30,13 +30,15 @@ class Card:
 
     def __eq__(self, other: 'Card'):
         return self.number == other.number
-    
     def __lt__(self, other: 'Card'):
         return other.number < 10 if self.number == 0 \
             else self.number < other.number
     def __gt__(self, other: 'Card'):
         return other.number >= 10 if self.number == 0 \
             else self.number > other.number
+    
+    def __add__(self, other: 'Card'):
+        return Card(self.number + other.number)
     
     def __hash__(self):
         return self.number

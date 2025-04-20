@@ -1,11 +1,6 @@
 import model, view
 
 def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
-    ...
-    # while True OR while middle
-    # p_in = input()
-    # if move_algorithm.validate_input(p_in, p1hand)
-    # determine_winner()
     turn = 1
     p1score, p2score, middlescore = 0, 0, 0
     middle_pile = []
@@ -19,7 +14,7 @@ def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
               player_name, player_hand = "Player 2", p2hand
         move = input(f"[player_name], play a card: ")
         
-        if validate_input(move, player_hand):
+        if model.validate_input(move, player_hand):
             player_hand.remove(move)
             middle_pile.append(move)
             print(f"{player_name} plays {move}")
@@ -39,10 +34,9 @@ def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
                 
             turn == 2 if turn == 1 else 1
             
-        
-        result = determine_winner(p1hand,p2hand,middle)
-        return(f"The winner is {result}")
             
+        result = model.determine_winner(p1hand,p2hand,middle)
+        return(f"The winner is {result}")
             
       
 def main():
