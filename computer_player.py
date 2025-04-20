@@ -10,7 +10,7 @@ from statistics import fmean
 def choose_next_card(hand_cards: list[Card], 
                      opponent_cards: list[Card], 
                      middle_cards: list[Card], 
-                     depth: int, accum: int = 0)-> tuple[Card, float]:
+                     depth: int, accum: int = 0) -> tuple[Card, float]:
     """From Cards in hand, choose a Card which is most likely to lead to future
     profits.
 
