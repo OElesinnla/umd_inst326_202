@@ -42,3 +42,25 @@ class Card:
     
     def __hash__(self):
         return self.number
+    
+def to_card_value(alias: str) -> Card:
+    """Convert a card alias to a Card with its respective value.
+    
+    Args:
+        alias (str): semantic card name. th resultant Card will have an alias
+            which is this.
+    Returns:
+        Card: has the same alias as the arg alias, provided it is valid.
+    """
+    alias = alias.lower()
+    match alias:
+        case 'ace':
+            return Card(0)
+        case 'jack':
+            return Card(10)
+        case 'queen':
+            return Card(11)
+        case 'king':
+            return Card(12)
+        case _:
+            return Card(int(alias) - 1)

@@ -1,10 +1,9 @@
 import random
-from typing import List, Tuple
 
 
 def shuffle_and_deal(deck: list[tuple], num_cards: int = 13) -> tuple[list[tuple], list[tuple]]:
     """
-    Shuffle  deck nd deal off num_cards which will be 13 cards being dealt
+    Shuffle deck and deal off num_cards.
 
     Args:
         deck = your deck of cards 
@@ -34,4 +33,3 @@ full_deck = [r+s for s in suits for r in ranks]
 
 player_hand, rest_of_cards = shuffle_and_deal(full_deck, 13)
 print(f"Dealt {len(player_hand)} cards, {len(rest_of_cards)} remain.")
-    
