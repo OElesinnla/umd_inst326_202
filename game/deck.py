@@ -1,6 +1,13 @@
 import random
 
+from cards import Card
 
+# TODO
+# Could this function just return a tuple of lists of cards, shuffled & of the 
+# same suit? so the header would look like this
+# shuffle_and_deal() -> tuple[list[Card]]
+# and we could use it like this
+# p1_hand, p2_hand, middle = shuffle_and_deal() 
 def shuffle_and_deal(deck: list[tuple], num_cards: int = 13) -> tuple[list[tuple], list[tuple]]:
     """
     Shuffle deck and deal off num_cards.
