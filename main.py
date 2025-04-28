@@ -33,10 +33,9 @@ def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
                 middle_pile = []
                 
             turn == 2 if turn == 1 else 1
-            
-            
+             
         result = model.determine_winner(p1hand,p2hand,middle)
-        return(f"The winner is {result}")
+    return(f"The winner is {result}")
             
       
 def main():

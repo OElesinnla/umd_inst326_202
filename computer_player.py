@@ -26,8 +26,8 @@ def choose_next_card(hand_cards: list[Card],
         hand_cards = [c for c in hand_cards if c.number not in (0, 11, 12)]
     if sum(hand_cards, Card(0)) > sum(middle_cards, Card(0)):
         return max(hand_cards), depth
-    if sum(opponent_cards, Card(0)) > sum(hand_cards, Card(0)):
-        return min(hand_cards), depth - 1
+    # if sum(opponent_cards, Card(0)) > sum(hand_cards, Card(0)):
+    #     return min(hand_cards), depth - 1
     
     # All permutations from here
     opp_permutes: list[tuple[Card, Card]] = \
@@ -65,7 +65,8 @@ def choose_next_card(hand_cards: list[Card],
 
 
 if __name__ == '__main__':
-    print("TEST:\nmeasure this algorithm's performance time")
+    print("TEST: measure this algorithm's performance time\n" \
+          "WARNING: These tests may take upwards of 30s to compute.")
     print('=' * 80)
     p1 = [Card(i) for i in range(13)]
     shuffle(p1)
@@ -82,9 +83,9 @@ if __name__ == '__main__':
     pick, e = choose_next_card(p1, p2, middle, depth=1)
     print(f"Completion time: {time.perf_counter() - st}")
     print(f"Choice: {pick.alias}\n\tExpected value: {e}")
-    print("consider current hand from 7 moves in, looking 5 turns ahead ....")
+    print("consider current hand from 7 moves in, looking 3 turns ahead ....")
     st = time.perf_counter()
-    pick, e = choose_next_card(p1[7:], p2[7:], middle[7:], depth=5)
+    pick, e = choose_next_card(p1[7:], p2[7:], middle[7:], depth=3)
     print(f"Completion time: {time.perf_counter() - st}")
     print(f"Choice: {pick.alias}\n\tExpected value: {e}")
     print("consider last 5 cards remaining, looking 5 turns ahead ....")
