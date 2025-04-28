@@ -2,14 +2,14 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Card:
-    """A card in the 52-card deck. In Bastion Breach, the suit is irrelevant to
-    value.
+    """A card in the 52-card deck.
+    In Bastion Breach, the suit is irrelevant to a card's value.
 
     Attributes:
         number (int): The Card's numeric value, from Ace to King, 
             beginning at 0.
         alias (str): The name of the card's value.
-        suit (str): The suit of the card.
+        suit (str): The suit of the card, as a utf-8 character.
     """
     number: int
     alias: str = field(init=False)

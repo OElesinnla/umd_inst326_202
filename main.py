@@ -1,4 +1,7 @@
-import model, view
+import game.deck
+from game.players import HumanPlayer
+from game.gameplay import Round
+
 
 def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
     turn = 1
@@ -39,12 +42,17 @@ def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
             
       
 def main():
-    p1 = model.pick_cards()
-    p2 = model.pick_cards()
-    middle = model.pick_cards()
-    middle = middle.shuffle()
+    # p1 = model.pick_cards()
+    # p2 = model.pick_cards()
+    # middle = model.pick_cards()
+    # middle = middle.shuffle()
 
-    winner = game_turns(p1, p2, middle)
+    # winner = game_turns(p1, p2, middle)
+    round = Round()
+    winner = None
+    while not winner:
+        winner = round.turns()
+    ...
 
 if __name__ == '__main__':
     main()
