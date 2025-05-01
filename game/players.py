@@ -29,16 +29,15 @@ class HumanPlayer(Player):
         self.hand -= card
         return card
 
-
-def validate_input(player_input: str, hand_cards: list[Card]) -> bool:
-    player_input = player_input.strip()
-    if player_input.isalpha() == False:
-        return False
-    elif not player_input in \
-        ('Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 
-         'Jack', 'Queen', 'King'):
-        return False
-    elif to_card_value(player_input) not in hand_cards:
-        return False
-    else:
-        return True
+    def validate_input(self, player_input: str) -> bool:
+        player_input = player_input.strip()
+        if player_input.isalpha() == False:
+            return False
+        elif not player_input in \
+            ('Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 
+            'Jack', 'Queen', 'King'):
+            return False
+        elif to_card_value(player_input) not in self.hand_cards:
+            return False
+        else:
+            return True
