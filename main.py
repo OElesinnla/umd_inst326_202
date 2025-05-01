@@ -42,16 +42,17 @@ def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
             
       
 def main():
-    # p1 = model.pick_cards()
-    # p2 = model.pick_cards()
-    # middle = model.pick_cards()
-    # middle = middle.shuffle()
-
-    # winner = game_turns(p1, p2, middle)
-    round = Round()
+    # Do one round for now
+    p1hand, p2hand, middle = game.deck.shuffle_and_deal()
+    p1 = HumanPlayer('p1', p1hand)
+    p2 = HumanPlayer('p2', p2hand)
+    round = Round((p1, p2), middle)
     winner = None
+    turn_winner = None
     while not winner:
-        winner = round.turns()
+        while not turn_winner:
+            turn_winner = round.turns()
+            
     ...
 
 if __name__ == '__main__':

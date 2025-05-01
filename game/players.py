@@ -1,4 +1,4 @@
-from cards import Card, to_card_value
+from cards import Card, to_card_value, get_card_by_alias
 
 
 class Player:
@@ -22,10 +22,12 @@ class HumanPlayer(Player):
         super().__init__()
 
     def turn(self) -> Card:
-        p_in = input() # Text prompt will be handled by the viewer
+        p_in = input().strip() # Text prompt will be handled by the viewer
         if not validate_input(p_in, self.hand):
             return None
-        ...
+        card = get_card_by_alias(p_in)
+        self.hand -= card
+        return card
 
 
 def validate_input(player_input: str, hand_cards: list[Card]) -> bool:

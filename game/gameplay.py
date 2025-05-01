@@ -16,6 +16,7 @@ class Round:
     def __init__(self, players: tuple[Player], middle: list[Card]):
         self.players: tuple[Player]     = players
         self.scores: dict[Player, int]  = {(p, 0) for p in players}
+        self.p_choices: dict[Player, Card]  = {(p, None) for p in players}
         self.middle: list[Card]         = middle
         self.middle_streak: int         = 0
 
@@ -26,13 +27,13 @@ class Round:
         Returns:
             list: The players who won. More than 1 player indicates a tie. 
         """
-        # middle.pop()
-        # for p in self.players:
-        #     p.turn()
+        while self.middle:
+            middle_card = self.middle.pop()
+            for player in self.players:
+                self.p_choices[player] = player.turn()
+                if not self.p_choices[player]:
+                    ...
 
-        # if not self.middle:
-        #     return self.winner()
-        
     def winner(self) -> list[Player]:
         """Determine from our score which player is the ultimate winner.
 
@@ -40,3 +41,18 @@ class Round:
             list: The players who won. More than 1 player indicates a tie.
         """
         return [p for p, s in self.scores if s == max(self.scores)]
+
+
+class GameState:
+    """A representation of relevant game information for displaying in the view.
+    """
+    def __init__(self, players, player,
+                 middle_revealed, middle_hidden,
+                 scores,
+                 streak: int):
+        self.players = players
+        self.player_turn = player
+        self.middle_revealed = middle_revealed
+        self.middle_hidden = middle_hidden
+        self.scores = scores
+        self.streak = streak
