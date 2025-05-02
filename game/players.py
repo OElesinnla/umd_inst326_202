@@ -51,7 +51,14 @@ class HumanPlayer(Player):
             return card
 
     def validate_input(self, player_input: str) -> None | Card:
-        """...
+        """Validates the player's input 
+
+        Args:
+            player_input (str): The user's input 
+
+        Returns:
+            None | Card: Returns a card representing the user's input if the 
+            input is valid and returns None if a user's input is invalid. 
         """
         player_input = player_input.strip()
         if not player_input in \
@@ -64,10 +71,10 @@ class HumanPlayer(Player):
             return to_card_value(player_input)
         
     def __repr__(self):
-        ...
+        return f" You chose {self.player_input}"
         
     def __str__(self):
-        ...
+        return f"{self.player_input}"
         
 class ComputerPlayer(Player):
     """A computer player who will make moves like a player. They will also
