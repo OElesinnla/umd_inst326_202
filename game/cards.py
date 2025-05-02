@@ -43,6 +43,12 @@ class Card:
     def __hash__(self):
         return self.number
     
+    def __repr__(self):
+        ...
+    
+    def __str__(self):
+        ...
+    
 def to_card_value(alias: str) -> Card:
     """Convert a card alias to a Card with its respective value.
     

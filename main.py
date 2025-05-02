@@ -1,7 +1,7 @@
 import sys
 
 from game.deck import shuffle_and_deal
-from game.players import HumanPlayer
+from game.players import HumanPlayer, ComputerPlayer
 from game.gameplay import Round, GameState
 
 import viewer.view as view
@@ -62,16 +62,26 @@ def main():
     p1hand, p2hand, middle = shuffle_and_deal()
     p1 = None
     p2 = None
-    while not p1 and p2:
-        if mode_input == '1':
-            player_name_input = ''
-            while not player_name_input:
-                view.player_init_comp()
-                player_name_input = input().strip()
-            p1 = HumanPlayer(player_name_input, p1hand)
-            p2 = 
-    p1 = HumanPlayer('p1', p1hand)
-    p2 = HumanPlayer('p2', p2hand)
+    if mode_input == '1':                           # 1 player mode
+        player_name_input = ''
+        while not player_name_input:
+            view.player_init_1()
+            player_name_input = input().strip()
+        p1 = HumanPlayer(player_name_input, p1hand)
+        p2 = ComputerPlayer("Sebastian", p2hand)
+    if mode_input == '2':                           # 2 player mode
+        player_name_input = ''
+        while not player_name_input:
+            view.player_init_2(1)
+            player_name_input = input().strip()
+        p1 = HumanPlayer(player_name_input, p1hand)
+        player_name_input = ''
+        while not player_name_input:
+            view.player_init_2(2)
+            player_name_input = input().strip()
+        p2 = HumanPlayer(player_name_input, p2hand)
+
+    # Begin game
     round = Round((p1, p2), middle)
     winner = None
     turn_winner = None

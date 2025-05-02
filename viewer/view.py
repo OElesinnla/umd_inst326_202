@@ -32,10 +32,18 @@ BASTION'S BREACH
     Select game mode:
 """.strip() + ' ', flush=True, end='')
 
-def player_init_comp() -> None:
+def player_init_1() -> None:
     pclear()
     print("""
 Your opponent is Sebastian! 
+          
+Please enter your name:
+""".strip() + ' ', flush=True, end='')
+    
+def player_init_2(player: int) -> None:
+    pclear()
+    print(f"""
+Player {player}
           
 Please enter your name:
 """.strip() + ' ', flush=True, end='')
