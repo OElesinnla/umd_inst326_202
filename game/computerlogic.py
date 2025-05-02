@@ -1,9 +1,8 @@
-"""A computer player which we may drop in if we like.
+"""A computer player's logic which we may drop in if we like.
 """
 
 from cards import Card
 from random import choice, shuffle
-import time
 
 
 def choose_next_card(hand_cards: list[Card], 
@@ -62,34 +61,3 @@ def choose_next_card(hand_cards: list[Card],
         [(c, e) for c, e in card_outcomes.items() \
          if e == max(card_outcomes.values())]
     return choice(choices)
-
-
-if __name__ == '__main__':
-    print("TEST: measure this algorithm's performance time\n" \
-          "WARNING: These tests may take upwards of 30s to compute.")
-    print('=' * 80)
-    p1 = [Card(i) for i in range(13)]
-    shuffle(p1)
-    p2 = [Card(i) for i in range(13)]
-    shuffle(p2)
-    middle = [Card(i) for i in range(13)]
-    shuffle(middle)
-    print(f"p1 cards: {[c.alias for c in p1]}")
-    print(f"p2 cards: {[c.alias for c in p2]}")
-    print(f"Middle cards: {[c.alias for c in middle]}")
-    print('=' * 80)
-    print("consider current hand from beginning, looking 1 turn ahead ....")
-    st = time.perf_counter()
-    pick, e = choose_next_card(p1, p2, middle, depth=1)
-    print(f"Completion time: {time.perf_counter() - st}")
-    print(f"Choice: {pick.alias}\n\tExpected value: {e}")
-    print("consider current hand from 7 moves in, looking 3 turns ahead ....")
-    st = time.perf_counter()
-    pick, e = choose_next_card(p1[7:], p2[7:], middle[7:], depth=3)
-    print(f"Completion time: {time.perf_counter() - st}")
-    print(f"Choice: {pick.alias}\n\tExpected value: {e}")
-    print("consider last 5 cards remaining, looking 5 turns ahead ....")
-    st = time.perf_counter()
-    pick, e = choose_next_card(p1[-5:], p2[-5:], middle[-5:], depth=5)
-    print(f"Completion time: {time.perf_counter() - st}")
-    print(f"Choice: {pick.alias}\n\tExpected value: {e}")

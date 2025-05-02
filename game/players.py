@@ -25,6 +25,10 @@ class Player:
 
 class HumanPlayer(Player):
     """A player of the game who is using the terminal interface.
+
+    Attributes:
+        name (str): The player's title.
+        hand (set): Cards in the player's hand.
     """
     def __init__(self):
         super().__init__()
@@ -49,3 +53,14 @@ class HumanPlayer(Player):
             return False
         else:
             return True
+        
+class ComputerPlayer(Player):
+    """A computer player who will make moves like a player. They will also
+    submit specialized information about their internal state.
+    
+    Attributes:
+        name (str): The computer's title.
+        hand (set): Cards in the comp's hand.
+    """
+    def __init__(self, name, hand):
+        super().__init__(name, hand)
