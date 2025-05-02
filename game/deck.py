@@ -1,6 +1,6 @@
 import random
 
-from cards import Card
+from .cards import Card
 
 # TODO
 # Could this function just return a tuple of lists of cards, shuffled & of the 

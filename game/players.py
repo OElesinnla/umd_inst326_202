@@ -1,4 +1,4 @@
-from cards import Card, to_card_value, get_card_by_alias
+from .cards import Card, to_card_value
 
 
 class Player:
@@ -13,7 +13,15 @@ class Player:
         self.hand = hand
 
     def turn(self) -> Card:
+        """A turn for this player in which they will chose their Card from their
+        hand.
+        """
         raise NotImplementedError
+    
+    def __hash__(self):
+        """Hash from player's name and their suit.
+        """
+        return hash(f"{self.name}{self.hand[0].suit}")
 
 class HumanPlayer(Player):
     """A player of the game who is using the terminal interface.
@@ -25,7 +33,7 @@ class HumanPlayer(Player):
         p_in = input().strip() # Text prompt will be handled by the viewer
         if not self.validate_input(p_in, self.hand):
             return None
-        card = get_card_by_alias(p_in)
+        card = to_card_value(p_in)
         self.hand -= card
         return card
 

@@ -64,8 +64,3 @@ def to_card_value(alias: str) -> Card:
             return Card(12)
         case _:
             return Card(int(alias) - 1)
-        
-def get_card_by_alias(alias: str) -> Card:
-    """Return a Card with this alias.
-    """
-    ... #TODO

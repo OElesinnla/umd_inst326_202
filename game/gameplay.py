@@ -1,5 +1,5 @@
-from cards import Card
-from players import Player, HumanPlayer
+from .cards import Card
+from .players import Player, HumanPlayer
 
 
 class Round:
@@ -56,3 +56,4 @@ class GameState:
         self.middle_hidden = middle_hidden
         self.scores = scores
         self.streak = streak
+        self.turn_winner = None
