@@ -17,24 +17,24 @@ class Card:
 
     def __post_init__(self):
         match self.number:
-            case 0:
+            case 1:
                 self.alias = 'Ace'
-            case 10:
-                self.alias = 'Jack'
             case 11:
-                self.alias = 'Queen'
+                self.alias = 'Jack'
             case 12:
+                self.alias = 'Queen'
+            case 13:
                 self.alias = 'King'
             case _:
-                self.alias = str(self.number + 1)
+                self.alias = str(self.number)
 
     def __eq__(self, other: 'Card'):
         return self.number == other.number
     def __lt__(self, other: 'Card'):
-        return other.number < 10 if self.number == 0 \
+        return other.number < 11 if self.number == 1 \
             else self.number < other.number
     def __gt__(self, other: 'Card'):
-        return other.number >= 10 if self.number == 0 \
+        return other.number >= 10 if self.number == 1 \
             else self.number > other.number
     
     def __add__(self, other: 'Card'):
@@ -55,12 +55,13 @@ def to_card_value(alias: str) -> Card:
     alias = alias.lower()
     match alias:
         case 'ace':
-            return Card(0)
+            return Card(1)
         case 'jack':
-            return Card(10)
-        case 'queen':
             return Card(11)
-        case 'king':
+        case 'queen':
             return Card(12)
+        case 'king':
+            return Card(13)
         case _:
-            return Card(int(alias) - 1)
+            return Card(int(alias))
+        

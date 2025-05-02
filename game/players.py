@@ -30,29 +30,27 @@ class HumanPlayer(Player):
         name (str): The player's title.
         hand (set): Cards in the player's hand.
     """
-    def __init__(self):
-        super().__init__()
+    def __init__(self, name: str, hand: set[Card]):
+        super().__init__(name, hand)
 
     def turn(self) -> Card:
         p_in = input().strip() # Text prompt will be handled by the viewer
-        if not self.validate_input(p_in, self.hand):
+        if not (card := self.validate_input(p_in)):
             return None
-        card = to_card_value(p_in)
-        self.hand -= card
-        return card
+        else:
+            self.hand -= card
+            return card
 
     def validate_input(self, player_input: str) -> bool:
         player_input = player_input.strip()
-        if player_input.isalpha() == False:
-            return False
-        elif not player_input in \
+        if not player_input in \
             ('Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 
             'Jack', 'Queen', 'King'):
-            return False
-        elif to_card_value(player_input) not in self.hand_cards:
-            return False
+            return None
+        elif to_card_value(player_input) not in self.hand:
+            return None
         else:
-            return True
+            return to_card_value(player_input)
         
 class ComputerPlayer(Player):
     """A computer player who will make moves like a player. They will also
