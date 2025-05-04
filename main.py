@@ -17,7 +17,7 @@ def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
             player_name, player_hand = "Player 1", p1hand
         else:
               player_name, player_hand = "Player 2", p2hand
-        move = input(f"[player_name], play a card: ")
+        move = input(f"{player_name}, play a card: ")
         
         if validate_input(move, player_hand):
             player_hand.remove(move)
