@@ -1,7 +1,8 @@
 from .cards import Card
-from .players import Player, HumanPlayer
+from .players import Player
 
 
+# NOTE Round is defunct until single-round logic is OK- ignore this
 class Round:
     """A round of Bastion's Breach, where players will take turns placing cards
     and scoring points.

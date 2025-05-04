@@ -74,4 +74,3 @@ def to_card_value(alias: str) -> Card:
             return Card(13)
         case _:
             return Card(int(alias))
-        

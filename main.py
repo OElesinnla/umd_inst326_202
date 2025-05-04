@@ -1,47 +1,11 @@
 import sys
 
+from game.cards import Card
 from game.deck import shuffle_and_deal
-from game.players import HumanPlayer, ComputerPlayer
+from game.players import Player, HumanPlayer, ComputerPlayer
 from game.gameplay import Round, GameState
 
 import viewer.view as view
-
-# def game_turns(p1hand: list, p2hand: list, middle: list) -> str:
-#     turn = 1
-#     p1score, p2score, middlescore = 0, 0, 0
-#     middle_pile = []
-#     while middle:
-#         print(f"Player 1: {p1hand}")
-#         print(f"Player 2: {p2hand}")
-        
-#         if turn == 1:
-#             player_name, player_hand = "Player 1", p1hand
-#         else:
-#               player_name, player_hand = "Player 2", p2hand
-#         move = input(f"[player_name], play a card: ")
-        
-#         if model.validate_input(move, player_hand):
-#             player_hand.remove(move)
-#             middle_pile.append(move)
-#             print(f"{player_name} plays {move}")
-            
-#             if len(middle_pile) == 2:
-#                 player1 = middle_pile[0]
-#                 player2 = middle_pile[1]
-
-#                 if middle.pop() > player1 and player2:
-#                     middlescore += 1
-#                 if player1 > player2:
-#                     p1score += 1 + middlescore
-#                 if player2 > player1:
-#                     p2score += 1 + middlescore
-                
-#                 middle_pile = []
-                
-#             turn == 2 if turn == 1 else 1
-             
-#         result = model.determine_winner(p1hand,p2hand,middle)
-#     return(f"The winner is {result}")
             
 
 def main():
@@ -82,14 +46,28 @@ def main():
         p2 = HumanPlayer(player_name_input, p2hand)
 
     # Begin game
-    round = Round((p1, p2), middle)
-    winner = None
-    turn_winner = None
-    while not winner:
-        while not turn_winner:
-            gamestate = Round.turn()
+    winner: Player              = None
+    players: list[Player]       = [p1, p2]
+    p_scores: dict[Player, int] = {p1: 0, p2: 0}
+    middle_score: int           = 1
+    while middle:
+        choices: dict[Player, Card] = {p1: None, p2: None}
+        for p in players:
+            p_choice = p.turn(players.remove(p)[0].hand, middle)
+            choices[p] = p_choice
+        middle_card = middle.pop(0) # regarding the first index as the leftmost
+        if middle_card > p_choice[p1] and middle_card > p_choice[p2]:
+            middle_score += 1
+        else:
+            p_scores[p1 if p_choice[p1] > p_choice[p2] else p2] += middle_score
+            middle_score = 1
+    if p_scores[p1] == p_scores[p2]:
+        winner = "Everybody!"
+    else:
+        winner = p1 if p_scores[p1] > p_scores[p2] else p2
 
-    ...
+    print(winner)
+
 
 if __name__ == '__main__':
     main()

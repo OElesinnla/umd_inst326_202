@@ -7,6 +7,7 @@ def test_validate_input():
     assert player1.validate_input("Ace") == Card(1)
     assert player1.validate_input("2") == Card(2)
 
+
 def test_player_repr_str():
     hp1 = HumanPlayer(name="Dondon", hand={Card(number=1), Card(number=2)})
     hp2 = HumanPlayer("Dondon2", set())

@@ -1,4 +1,4 @@
-from cards import Card, to_card_value
+from .cards import Card, to_card_value
 
 
 class Player:
