@@ -18,13 +18,13 @@ class Card:
     def __post_init__(self):
         match self.number:
             case 1:
-                self.alias = 'Ace'
+                self.alias = 'ace'
             case 11:
-                self.alias = 'Jack'
+                self.alias = 'jack'
             case 12:
-                self.alias = 'Queen'
+                self.alias = 'queen'
             case 13:
-                self.alias = 'King'
+                self.alias = 'king'
             case _:
                 self.alias = str(self.number)
 
@@ -44,10 +44,14 @@ class Card:
         return self.number
     
     def __repr__(self):
-        ...
+        return f"Card(number={self.number})" \
+            if not self.suit \
+            else f"Card(number={self.number}, suit={self.suit})"
     
     def __str__(self):
-        ...
+        return f"{self.alias}" \
+            if not self.suit \
+            else f"{self.alias} of {self.suit}"
     
 def to_card_value(alias: str) -> Card:
     """Convert a card alias to a Card with its respective value.

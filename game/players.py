@@ -1,4 +1,4 @@
-from .cards import Card, to_card_value
+from cards import Card, to_card_value
 
 
 class Player:
@@ -33,7 +33,7 @@ class HumanPlayer(Player):
     def __init__(self, name: str, hand: set[Card]):
         super().__init__(name, hand)
 
-    def turn(self) -> None | Card:
+    def turn(self, *args) -> None | Card:
         """The human player will chose a card they have. If it's valid, it will 
         be removed from their hand and given to the game's logic handler.
 
@@ -87,21 +87,21 @@ class ComputerPlayer(Player):
     def __init__(self, name: str, hand: set[Card]):
         super().__init__(name, hand)
 
-    def turn(self, gamestate) -> Card:
+    def turn(self, opponent_hand, middle_hidden) -> Card:
         """Chose a Card given the GameState.
 
         Args:
-            gamestate (): The gamestate with information pertaining to making a
-                choice of move- the middle cards and the opponent's cards.
+            opponent_hand (set): What Cards the opponent still has in their
+                hand.
+            middle_hidden (set): What Cards the middle has yet to reveal.
         Returns:
             Card: The Card chosen, now removed from the comp's hand.
-        Side Effects:
-            [WIP: psychological state]
         """
-        ...
+        ... # TODO use choose_next_card() from computerlogic.py to pick a card
 
     def __repr__(self):
-        ...
+        return f"ComputerPlayer(name=\"{self.name}\", hand={self.hand})"
         
     def __str__(self):
-        ...
+        return f"ComputerPlayer \"{self.name}\" has " + \
+            ', '.join([str(c) for c in self.hand])
