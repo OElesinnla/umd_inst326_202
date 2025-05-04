@@ -7,7 +7,7 @@ SUITS = ['♠','♥','♦','♣']
 def shuffle_and_deal() -> tuple[list[Card], list[Card], list[Card]]:
     """
     Builds a 52 card deck, shuffle it, and deal 13 cards to
-    two players plus 13 cards as the middle row.
+    two players plus 13 cards as the middle row
 
     Returns:
         tuple of three lists of Card:
