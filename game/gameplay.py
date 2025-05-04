@@ -33,7 +33,30 @@ class Round:
             for player in self.players:
                 self.p_choices[player] = player.turn()
                 if not self.p_choices[player]:
-                    ...
+                    print(f"{player} did not make a choice.")
+                    continue
+            if len(self.p_choices) < len(self.players):
+                continue
+            
+            winners = self.determine_winner(self.p_choices, middle_card)
+            
+            for winner in winners:
+                self.scores[winner] += 1
+                
+            return self.winner()
+                
+                
+    def determine_winner(self, choices: dict, middle_card) -> list[Player]:
+            middle_value = middle_card.value
+            highest_player_value = max(choice.value for choice in \
+                choices.values())
+            
+            if middle_value > highest_player_value:
+                return []
+            
+            winners = [player for player, choice in choices.items()
+               if choice.value == highest_player_value]
+            return winners
 
     def winner(self) -> list[Player]:
         """Determine from our score which player is the ultimate winner.
