@@ -1,4 +1,4 @@
-from .cards import Card, to_card_value
+from cards import Card, to_card_value
 from computerlogic import choose_next_card
 
 
@@ -75,7 +75,7 @@ class HumanPlayer(Player):
         return f"HumanPlayer(name=\"{self.name}\", hand={self.hand})"
         
     def __str__(self):
-        return f"HumanPlayer\"{self.name}\" has "  + \
+        return f"HumanPlayer \"{self.name}\" has "  + \
             ', '.join([str(c) for c in self.hand])
         
 class ComputerPlayer(Player):
@@ -104,6 +104,7 @@ class ComputerPlayer(Player):
                                          middle_hidden)
         self.hand_cards.remove(computer_card)
         return computer_card
+
     def __repr__(self):
         return f"ComputerPlayer(name=\"{self.name}\", hand={self.hand})"
         
