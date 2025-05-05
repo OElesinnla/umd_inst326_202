@@ -56,7 +56,7 @@ def main():
         choices: dict[Player, Card] = {p1: None, p2: None}
         for p in players:
             view.player_turn_screen(p.name, p.hand, len(middle), middle_revealed)
-            p_choice = p.turn(players.remove(p)[0].hand, middle)
+            p_choice = p.turn(other_player.hand, middle)
             choices[p] = p_choice
         middle_card = middle.pop(0) # regarding the first index as the leftmost
         middle_revealed.append(middle_card)
