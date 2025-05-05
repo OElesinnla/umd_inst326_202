@@ -1,5 +1,5 @@
 from .cards import Card, to_card_value
-from computerlogic import choose_next_card
+from .computerlogic import choose_next_card
 
 
 class Player:
@@ -44,12 +44,13 @@ class HumanPlayer(Player):
                 This will be None if the input wasn't valid, and must be tried
                 again.
         """
-        p_in = input().strip() # Text prompt will be handled by the viewer
-        if not (card := self.validate_input(p_in)):
-            return None
-        else:
-            self.hand -= card
-            return card
+        # TODO: do error checking here: enclose this in a while loop
+        # p_in = input().strip() # Text prompt will be handled by the viewer
+        # if not (card := self.validate_input(p_in)):
+        #     return None
+        # else:
+        #     self.hand -= card
+        #     return card
 
     def validate_input(self, player_input: str) -> None | Card:
         """Validates the player's input 
@@ -104,6 +105,7 @@ class ComputerPlayer(Player):
                                          middle_hidden)
         self.hand.remove(computer_card)
         return computer_card
+    
     def __repr__(self):
         return f"ComputerPlayer(name=\"{self.name}\", hand={self.hand})"
         
