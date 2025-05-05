@@ -71,10 +71,11 @@ class HumanPlayer(Player):
             return to_card_value(player_input)
         
     def __repr__(self):
-        return f" You chose {self.player_input}"
+        return f"HumanPlayer(name=\"{self.name}\", hand={self.hand})"
         
     def __str__(self):
-        return f"{self.player_input}"
+        return f"HumanPlayer\"{self.name}\" has "  + \
+            ', '.join([str(c) for c in self.hand])
         
 class ComputerPlayer(Player):
     """A computer player who will make moves like a player. They will also

@@ -24,6 +24,6 @@ def test_player_repr_str():
     assert repr(comp) == \
         "ComputerPlayer(name=\"Compy\", " \
             "hand={Card(number=11), Card(number=12)})"
-    
+     
     assert str(hp1) == "HumanPlayer \"Dondon\" has ace, 2"
     assert str(comp) == "ComputerPlayer \"Compy\" has jack, queen"
