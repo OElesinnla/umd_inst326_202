@@ -100,9 +100,9 @@ class ComputerPlayer(Player):
             Card: The Card chosen, now removed from the comp's hand.
         """
         ... # TODO use choose_next_card() from computerlogic.py to pick a card
-        computer_card = choose_next_card(self.hand_cards, opponent_hand,
+        computer_card = choose_next_card(self.hand, opponent_hand,
                                          middle_hidden)
-        self.hand_cards.remove(computer_card)
+        self.hand.remove(computer_card)
         return computer_card
     def __repr__(self):
         return f"ComputerPlayer(name=\"{self.name}\", hand={self.hand})"
