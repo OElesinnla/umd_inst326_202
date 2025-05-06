@@ -13,9 +13,11 @@ def test_player_repr_str():
     hp2 = HumanPlayer("Dondon2", set())
     comp = ComputerPlayer("Compy", {Card(11), Card(12)})
 
-    print(hp1)
-    print(hp2)
-    print(comp)
+    # print(repr(hp1))
+    # print(hp1)
+    # print(repr(hp2))
+    # print(hp2)
+    # print(comp)
 
     assert repr(hp1) == \
         "HumanPlayer(name=\"Dondon\", hand={Card(number=1), Card(number=2)})"

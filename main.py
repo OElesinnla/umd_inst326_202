@@ -6,7 +6,7 @@ from game.players import Player, HumanPlayer, ComputerPlayer
 from game.gameplay import Round, GameState
 
 import viewer.view as view
-            
+
 
 def main():
     # Main screen
@@ -56,19 +56,18 @@ def main():
         choices: dict[Player, Card] = {p1: None, p2: None}
         for p in players:
             view.player_turn_screen(p.name, p.hand, len(middle), middle_revealed)
-            p_choice = p.turn(players.remove(p)[0].hand, middle)
-            choices[p] = p_choice
+            choices[p] = p.turn(other_player.hand, middle)
         middle_card = middle.pop(0) # regarding the first index as the leftmost
         middle_revealed.append(middle_card)
         view.reveal_middle_screen(p1.name, p2.name, len(middle), middle_revealed)
-        if middle_card > p_choice[p1] and middle_card > p_choice[p2]:
+        if middle_card > choices[p1] and middle_card > choices[p2]:
             middle_score += 1
             view.middle_won_screen(middle_score, len(middle), middle_revealed)
         else:
-            if p_choice[p1] == p_choice[p2]:
+            if choices[p1] == choices[p2]:
                 view.turn_tie_screen()
             else:
-                p_scores[p1 if p_choice[p1] > p_choice[p2] else p2] += \
+                p_scores[p1 if choices[p1] > choices[p2] else p2] += \
                     middle_score
                 middle_score = 1
                 view.turn_won_screen(p1.name, p2.name, p_scores[p1], p_scores[p2], len(middle), middle_revealed)

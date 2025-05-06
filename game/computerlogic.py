@@ -1,7 +1,7 @@
 """A computer player's logic which we may drop in if we like.
 """
 
-from cards import Card
+from .cards import Card
 from random import choice, shuffle
 
 
