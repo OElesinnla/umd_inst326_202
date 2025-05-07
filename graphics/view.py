@@ -128,7 +128,7 @@ def player_turn_screen(pname, hand: set, middle_hidden: list, middle_revealed: l
     print(f"""
 ====MOVE========================================================================
 
-Middle: {', '.join([str(c) for c in middle_revealed + middle_hidden])}
+Middle: {', '.join([f">> {str(c)} <<" if c == middle_hidden[0] else str(c) for c in middle_revealed + middle_hidden])}
 
 {pname}'s hand:
 {', '.join([str(c) for c in hand])}
@@ -146,7 +146,7 @@ def reveal_middle_screen(p1name, p2name, p1card, p2card, middle_hidden: list, mi
 
 {p1name}'s move: {str(p1card)}
 
-Middle: {', '.join([str(c) for c in middle_revealed + middle_hidden])}
+Middle: {', '.join([f">> {str(c)} <<" if c == middle_revealed[-1] else str(c) for c in middle_revealed + middle_hidden])}
 
 {p2name}'s move: {str(p2card)}
 """.strip())
