@@ -61,23 +61,23 @@ def main():
         # player 1 turn
         if isinstance(p1, HumanPlayer):
             while not choices[p1]:
-                view.player_turn_screen(p1.name, p1.hand, len(middle), middle_revealed)
+                view.player_turn_screen(p1.name, p1.hand, middle, middle_revealed)
                 choices[p1] = p1.turn()
         else:
             choices[p1] = p1.turn(p2.hand, middle)
         # player 2/computer turn
         if isinstance(p2, HumanPlayer):
             while not choices[p2]:
-                view.player_turn_screen(p2.name, p2.hand, len(middle), middle_revealed)
+                view.player_turn_screen(p2.name, p2.hand, middle, middle_revealed)
                 choices[p2] = p2.turn()
         else:
             choices[p2] = p2.turn(p1.hand, middle)
         middle_card = middle.pop(0) # regarding the first index as the leftmost
         middle_revealed.append(middle_card)
-        view.reveal_middle_screen(p1.name, p2.name, choices[p1], choices[p2], len(middle), middle_revealed)
+        view.reveal_middle_screen(p1.name, p2.name, choices[p1], choices[p2], middle, middle_revealed)
         if middle_card > choices[p1] and middle_card > choices[p2]:
             middle_score += 1
-            view.middle_won_screen(middle_score, len(middle), middle_revealed)
+            view.middle_won_screen(middle_score, middle, middle_revealed)
         else:
             if choices[p1] == choices[p2]:
                 view.turn_tie_screen()
@@ -86,7 +86,7 @@ def main():
                 p_scores[turn_winner] += \
                     middle_score
                 middle_score = 1
-                view.turn_won_screen(p1.name, p2.name, p_scores[p1], p_scores[p2], turn_winner.name, len(middle), middle_revealed)
+                view.turn_won_screen(p1.name, p2.name, p_scores[p1], p_scores[p2], turn_winner.name, middle, middle_revealed)
     if p_scores[p1] == p_scores[p2]:
         winner = "Everybody"
         view.winner_screen(p1.name, p2.name, p_scores[p1], p_scores[p2], winner)

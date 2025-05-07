@@ -120,23 +120,15 @@ def begin_game_screen(p1name: str, p2name: str):
 """.strip())
     time.sleep(5.0)
 
-def player_turn_screen(pname, hand: set, middle_hidden: int, middle_revealed: list, opp_plays = None):
+def player_turn_screen(pname, hand: set, middle_hidden: list, middle_revealed: list, opp_plays = None):
     """Shows the middle's revealed & yet-to-be-revealed cards, the player's 
     hand cards, and prompts for their input.
     """
-    # TODO: show opponent's plays as well
     pclear()
-    middle_graphic_bar = ''
-    for c in middle_revealed:
-        if c == middle_revealed[-1]:
-            middle_graphic_bar += f"|    {str(c)}    |"
-        else:
-            middle_graphic_bar += f"| {str(c)}"
-    middle_graphic_bar += '|' * middle_hidden
     print(f"""
 ====MOVE========================================================================
 
-{middle_graphic_bar}
+Middle: {', '.join([str(c) for c in middle_revealed + middle_hidden])}
 
 {pname}'s hand:
 {', '.join([str(c) for c in hand])}
@@ -145,7 +137,7 @@ What's your move?
 Type the card's name:
 """.strip() + ' ', end='')
     
-def reveal_middle_screen(p1name, p2name, p1card, p2card, middle_hidden: int, middle_revealed: list):
+def reveal_middle_screen(p1name, p2name, p1card, p2card, middle_hidden: list, middle_revealed: list):
     """Shows what the middle card was.
     """
     pclear()
@@ -154,22 +146,22 @@ def reveal_middle_screen(p1name, p2name, p1card, p2card, middle_hidden: int, mid
 
 {p1name}'s move: {str(p1card)}
 
-Middle was: {middle_revealed[-1]}
+Middle: {', '.join([str(c) for c in middle_revealed + middle_hidden])}
 
 {p2name}'s move: {str(p2card)}
 """.strip())
     time.sleep(5.0)
 
     
-def middle_won_screen(middle_score, middle_hidden: int, middle_revealed: list):
+def middle_won_screen(middle_score, middle_hidden: list, middle_revealed: list):
     """Shows what the middle's accumulation score is given it won the turn.
     """
     pclear()
     print(f"""
 ====STATUS======================================================================
 
-{', '.join([str(c) for c in middle_revealed])}
-{middle_hidden} turns remaining
+{', '.join([str(c) for c in middle_revealed + middle_hidden])}
+{len(middle_hidden)} turns remaining
 
 Next score is now worth {middle_score}!
 """.strip())
@@ -186,7 +178,7 @@ Damn, it was a tie!
 """.strip())
     time.sleep(5.0)
     
-def turn_won_screen(p1name, p2name, p1score, p2score, p_won, middle_hidden: int, middle_revealed: list):
+def turn_won_screen(p1name, p2name, p1score, p2score, p_won, middle_hidden: list, middle_revealed: list):
     """Shows which player won, and the players' scores at this stage. Also gives
     stats on what the middle is like.
     """
@@ -194,8 +186,8 @@ def turn_won_screen(p1name, p2name, p1score, p2score, p_won, middle_hidden: int,
     print(f"""
 ====STATUS======================================================================
 
-{', '.join([str(c) for c in middle_revealed])}
-{middle_hidden} turns remaining
+{', '.join([str(c) for c in middle_revealed + middle_hidden])}
+{len(middle_hidden)} turns remaining
 
 {p_won} won this time!
 {p1name}'s score: {p1score}
