@@ -2,7 +2,7 @@
 """
 
 from .cards import Card
-from random import choice, shuffle
+from random import choice
 
 
 def choose_next_card(hand_cards: list[Card], 

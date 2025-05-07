@@ -12,6 +12,7 @@ class Player:
     def __init__(self, name: str, hand: set[Card]):
         self.name = name
         self.hand = hand
+        self.suit = list(hand)[0].suit
 
     def turn(self) -> Card:
         """A turn for this player in which they will chose their Card from their
@@ -22,7 +23,7 @@ class Player:
     def __hash__(self):
         """Hash from player's name and their suit.
         """
-        return hash(f"{self.name}{self.hand[0].suit}")
+        return hash(f"{self.name}{self.suit}")
 
 class HumanPlayer(Player):
     """A player of the game who is using the terminal interface.
@@ -44,13 +45,13 @@ class HumanPlayer(Player):
                 This will be None if the input wasn't valid, and must be tried
                 again.
         """
-        # TODO: do error checking here: enclose this in a while loop
-        # p_in = input().strip() # Text prompt will be handled by the viewer
-        # if not (card := self.validate_input(p_in)):
-        #     return None
-        # else:
-        #     self.hand -= card
-        #     return card
+        card = None
+        p_in = input().strip()
+        card = self.validate_input(p_in)
+        if not card:
+            return None
+        self.hand -= {card}
+        return card
 
     def validate_input(self, player_input: str) -> None | Card:
         """Validates the player's input 
@@ -62,10 +63,10 @@ class HumanPlayer(Player):
             None | Card: Returns a card representing the user's input if the 
             input is valid and returns None if a user's input is invalid. 
         """
-        player_input = player_input.strip()
+        player_input = player_input.lower()
         if not player_input in \
-            ('Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 
-            'Jack', 'Queen', 'King'):
+            ('ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 
+            'jack', 'queen', 'king'):
             return None
         elif to_card_value(player_input) not in self.hand:
             return None
@@ -100,10 +101,12 @@ class ComputerPlayer(Player):
         Returns:
             Card: The Card chosen, now removed from the comp's hand.
         """
-        computer_card = choose_next_card(self.hand_cards, opponent_hand,
-                                         middle_hidden)
-        self.hand_cards.remove(computer_card)
+        computer_card = choose_next_card(self.hand, opponent_hand,
+                                         middle_hidden, 1)[0]
+        computer_card = Card(computer_card.number, self.suit)
+        self.hand.remove(computer_card)
         return computer_card
+
     def __repr__(self):
         return f"ComputerPlayer(name=\"{self.name}\", hand={self.hand})"
         

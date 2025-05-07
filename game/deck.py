@@ -1,14 +1,14 @@
 import random
-from cards import Card
+from .cards import Card
 from typing import List, Tuple
 
 def full_deck() -> List[Card]:
     """
     this will build and return the 52 card deck and 4 suits in ranking order.
     """
-    ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10','JACK', 'QUEEN', 'KING', 'ACE']
+    ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '1']
     suits = ['♠', '♥', '♦', '♣']
-    return [Card(rank, suit) for suit in suits for rank in ranks]
+    return [Card(int(rank), suit) for suit in suits for rank in ranks]
 
 def deal_three_suits(
     deck: List[Card]
@@ -41,7 +41,7 @@ def deal_three_suits(
     hand2 = by_suit[suit2]
     middle = by_suit[suit3].copy()
     random.shuffle(middle)
-    return hand1, hand2, middle
+    return set(hand1), set(hand2), middle
 
 if __name__ == "__main__":
     deck = full_deck()

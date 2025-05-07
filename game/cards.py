@@ -49,9 +49,7 @@ class Card:
             else f"Card(number={self.number}, suit={self.suit})"
     
     def __str__(self):
-        return f"{self.alias}" \
-            if not self.suit \
-            else f"{self.alias} of {self.suit}"
+        return f"{self.alias}"
     
 def to_card_value(alias: str) -> Card:
     """Convert a card alias to a Card with its respective value.

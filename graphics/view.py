@@ -51,8 +51,6 @@ class Screen:
 
 def pclear():
     os.system('cls')
-    # DEBUG: 80col ruler
-    print('0123456789' * 8)
 
 def main_screen() -> None:
     """Displays the main menu screen for the game.
@@ -91,18 +89,22 @@ def player_init_1() -> None:
     """
     pclear()
     print("""
+====NAME SELECT=================================================================          
+
 Your opponent is Sebastian! 
           
 Please enter your name:
 """.strip() + ' ', flush=True, end='')
     
-def player_init_2(player: int) -> None:
+def player_init_2(playerno: int) -> None:
     """Sets up the player by prompting the user for their name.
     Both players will have to enter their names.
     """
     pclear()
     print(f"""
-Player {player}
+====NAME SELECT=================================================================          
+
+Player {playerno}
           
 Please enter your name:
 """.strip() + ' ', flush=True, end='')
@@ -114,11 +116,11 @@ def begin_game_screen(p1name: str, p2name: str):
     print(f"""
 ====BEGIN=======================================================================
     
-          {p1name} vs. {p2name}
+{p1name} vs. {p2name}
 """.strip())
     time.sleep(5.0)
 
-def player_turn_screen(pname, hand: str, middle_hidden: int, middle_revealed: list, opp_plays = None):
+def player_turn_screen(pname, hand: set, middle_hidden: int, middle_revealed: list, opp_plays = None):
     """Shows the middle's revealed & yet-to-be-revealed cards, the player's 
     hand cards, and prompts for their input.
     """
@@ -127,30 +129,34 @@ def player_turn_screen(pname, hand: str, middle_hidden: int, middle_revealed: li
     middle_graphic_bar = ''
     for c in middle_revealed:
         if c == middle_revealed[-1]:
-            middle_graphic_bar += f"|    {c}    |"
+            middle_graphic_bar += f"|    {str(c)}    |"
         else:
-            middle_graphic_bar += f"| {c}"
+            middle_graphic_bar += f"| {str(c)}"
     middle_graphic_bar += '|' * middle_hidden
     print(f"""
+====MOVE========================================================================
+
 {middle_graphic_bar}
 
 {pname}'s hand:
-{hand}
+{', '.join([str(c) for c in hand])}
 
 What's your move?
 Type the card's name:
 """.strip() + ' ', end='')
     
-def reveal_middle_screen(p1name, p2name, middle_hidden: int, middle_revealed: list):
+def reveal_middle_screen(p1name, p2name, p1card, p2card, middle_hidden: int, middle_revealed: list):
     """Shows what the middle card was.
     """
     pclear()
     print(f"""
-{p1name}
+====RESULTS=====================================================================
+
+{p1name}'s move: {str(p1card)}
 
 Middle was: {middle_revealed[-1]}
 
-{p2name}
+{p2name}'s move: {str(p2card)}
 """.strip())
     time.sleep(5.0)
 
@@ -160,25 +166,27 @@ def middle_won_screen(middle_score, middle_hidden: int, middle_revealed: list):
     """
     pclear()
     print(f"""
-Status
+====STATUS======================================================================
 
-{', '.join(middle_revealed)}
+{', '.join([str(c) for c in middle_revealed])}
 {middle_hidden} turns remaining
 
 Next score is now worth {middle_score}!
 """.strip())
-    time.sleep(8.0)
+    time.sleep(5.0)
     
 def turn_tie_screen():
     """Shows if the middle didn't win, but both players tied.
     """
     pclear()
     print("""
-Shit, it was a tie!
-""")
-    time.sleep(8.0)
+====STATUS======================================================================
+
+Damn, it was a tie!
+""".strip())
+    time.sleep(5.0)
     
-def turn_won_screen(p1name, p2name, p1score, p2score, middle_hidden: int, middle_revealed: list):
+def turn_won_screen(p1name, p2name, p1score, p2score, p_won, middle_hidden: int, middle_revealed: list):
     """Shows which player won, and the players' scores at this stage. Also gives
     stats on what the middle is like.
     """
@@ -186,21 +194,21 @@ def turn_won_screen(p1name, p2name, p1score, p2score, middle_hidden: int, middle
     print(f"""
 ====STATUS======================================================================
 
-{', '.join(middle_revealed)}
+{', '.join([str(c) for c in middle_revealed])}
 {middle_hidden} turns remaining
 
-{p1name if p1score > p2score else p2name} won this time!
+{p_won} won this time!
 {p1name}'s score: {p1score}
 {p2name}'s score: {p2score}
 """.strip())
-    time.sleep(8.0)
+    time.sleep(5.0)
 
 def winner_screen(p1name, p2name, p1score, p2score, winner: str):
     """Displays the final scores & who won.
     """
     pclear()
     print(f"""
-====RESULTS=====================================================================
+====FINAL RESULTS===============================================================
 
 {p1name}'s final score: {p1score}
 {p2name}'s final score: {p2score}
