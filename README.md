@@ -18,5 +18,5 @@ What function each group member wrote, and the skill they claim.
 | O. Elesinnla |
 | D. Fonseca   |
 | D. Fonseca   |
-| D. Mcintosh  |
+| D. Mcintosh  | shuffle_and_deal()     | List comprehensions
 | D. Mcintosh  |
