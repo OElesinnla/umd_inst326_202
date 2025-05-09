@@ -64,14 +64,12 @@ class HumanPlayer(Player):
             input is valid and returns None if a user's input is invalid. 
         """
         player_input = player_input.lower()
-        if not player_input in \
+        return None if player_input not in \
             ('ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 
-            'jack', 'queen', 'king'):
-            return None
-        elif to_card_value(player_input) not in self.hand:
-            return None
-        else:
-            return to_card_value(player_input)
+            'jack', 'queen', 'king') else None if to_card_value(player_input) \
+                not in self.hand else to_card_value(player_input)
+            
+       
         
     def __repr__(self):
         return f"HumanPlayer(name=\"{self.name}\", hand={self.hand})"

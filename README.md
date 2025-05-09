@@ -14,8 +14,8 @@ What function each group member wrote, and the skill they claim.
 | ------------ | ---------------------- | ------------------------------------ |
 | M. Carr      | 
 | M. Carr      |
-| O. Elesinnla |
-| O. Elesinnla |
+| O. Elesinnla | validate_input         | Conditional Expression 
+| O. Elesinnla | __repr__               | Magic Method 
 | D. Fonseca   |
 | D. Fonseca   |
 | D. Mcintosh  | shuffle_and_deal()     | List comprehensions

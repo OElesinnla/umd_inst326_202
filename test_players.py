@@ -1,5 +1,5 @@
-from players import HumanPlayer, ComputerPlayer
-from cards import Card
+from game.players import HumanPlayer, ComputerPlayer
+from game.cards import Card
 
 
 def test_validate_input():
