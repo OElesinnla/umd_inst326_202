@@ -46,14 +46,15 @@ test_screens.py      | Test file for the display screens
 
 # Functions written, skills demonstrated
 What function each group member wrote, and the skill they claim.
-| Name         | Function               |  Skill demonstrated                  
-| ------------ | ---------------------- | ------------------------------------ 
-| M. Carr      |                        |
-| M. Carr      |                        |
-| O. Elesinnla | validate_input         | Conditional Expressions 
-| O. Elesinnla | turn method            | Composition of two custom classes
-| D. Fonseca   |                        |
-| D. Fonseca   |                        |
-| D. Mcintosh  | shuffle_and_deal()     | List comprehensions
-| D. Mcintosh  |                        |
+| Function/ Method     | Primary author         |  Techniques demonstrated                  
+| ------------         | ---------------------- | -----------------------------
+|                      | M. Carr                |
+|                      | M. Carr                |
+| validate_input       | O. Elesinnla           | Conditional Expressions 
+| turn method          | O. Elesinnla           | Composition of two custom 
+                                                    classes
+|                      | D. Fonseca             |
+|                      | D. Fonseca             |
+| shuffle_and_deal()   | D. Mcintosh            | List comprehensions
+|                      | D. Mcintosh            |
 
