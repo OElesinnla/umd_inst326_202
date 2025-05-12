@@ -68,9 +68,7 @@ class HumanPlayer(Player):
             ('ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 
             'jack', 'queen', 'king') else None if to_card_value(player_input) \
                 not in self.hand else to_card_value(player_input)
-            
-       
-        
+                    
     def __repr__(self):
         return f"HumanPlayer(name=\"{self.name}\", hand={self.hand})"
         
