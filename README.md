@@ -8,14 +8,17 @@ a command-line interface, and a complete gameplay loop.
 
 
 # An explanation of the purpose of each file in your repository.
-cards.py             |
-computerlogic.py     |
-deck.py              |
-gameplay.py          |
-players.py           |
-main.py              |
-test_players.py      |
-test_screens.py      |
+cards.py             | Creation of Card class and assigning values to cards
+computerlogic.py     | Designs how the computer player operates
+deck.py              | Designs the distrubtion of the cards to the player
+                        and the middle deck
+gameplay.py          | Takes care of each round of the game, the scoring
+                         logic and the display of the game to the terminal
+players.py           | Takes care of the display of players' choices 
+main.py              | Takes care of the entire logic of the game and how the
+                         game actually runs from beginning to end
+test_players.py      | Test file for the validate input method and magic methods
+test_screens.py      | Test file for the display screens 
 
 
 # Clear instructions on how to run your program from the command line. 
@@ -43,14 +46,14 @@ test_screens.py      |
 
 # Functions written, skills demonstrated
 What function each group member wrote, and the skill they claim.
-| Name         | Function               |  Skill demonstrated                  |
-| ------------ | ---------------------- | ------------------------------------ |
-| M. Carr      | 
-| M. Carr      |
+| Name         | Function               |  Skill demonstrated                  
+| ------------ | ---------------------- | ------------------------------------ 
+| M. Carr      |                        |
+| M. Carr      |                        |
 | O. Elesinnla | validate_input         | Conditional Expressions 
 | O. Elesinnla | turn method            | Composition of two custom classes
-| D. Fonseca   |
-| D. Fonseca   |
+| D. Fonseca   |                        |
+| D. Fonseca   |                        |
 | D. Mcintosh  | shuffle_and_deal()     | List comprehensions
-| D. Mcintosh  |
+| D. Mcintosh  |                        |
 
