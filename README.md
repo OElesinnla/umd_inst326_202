@@ -8,52 +8,52 @@ a command-line interface, and a complete gameplay loop.
 
 
 # An explanation of the purpose of each file in your repository.
-cards.py             | Creation of Card class and assigning values to cards
-computerlogic.py     | Designs how the computer player operates
-deck.py              | Designs the distrubtion of the cards to the player
-                        and the middle deck
-gameplay.py          | Takes care of each round of the game, the scoring
-                         logic and the display of the game to the terminal
-players.py           | Takes care of the display of players' choices 
-main.py              | Takes care of the entire logic of the game and how the
-                         game actually runs from beginning to end
-test_players.py      | Test file for the validate input method and magic methods
-test_screens.py      | Test file for the display screens 
+All of the program files in our repository and their use.
+| File               | Explanation
+| ------------------ | --------------------------------------------------------
+|cards.py            | Creation of Card class and assigning values to cards
+|computerlogic.py    | Defines the computer player's behavior
+|deck.py             | Designs the distrubtion of the cards to the player and the middle deck
+|gameplay.py         | Takes care of each round of the game, the scoring logic and the game information to display.
+|players.py          | Takes care of getting input of players' choices, whether they are a human player or a computer
+|main.py             | Takes care of the entire logic of the game and how the game actually runs from beginning to end
+|test_players.py     | Test file for the validate input method and magic methods
+|test_screens.py     | Test file for the display screens 
 
 
 # Clear instructions on how to run your program from the command line. 
-1. python main.py 
+On Windows, type the following into your terminal:
+```python main.py```
 
-# Clear instructions on how to use your program and/or interpret the output of 
- the program. 
- 1. Select game mode (1-Begin game with you & a computer player
-                      2-Begin game with two players taking turns
-                      q- Quit)
+# Clear instructions on how to use your program and/or interpret its output
+ 1. Select game mode (`1`-Begin game with you & a computer player
+                      `2`-Begin game with two players taking turns
+                      `q`- Quit)
 2. Enter your name 
 3. The middle card is displayed and your cards are also displayed 
 4. When you see this >> << around a card in the middle deck it means that
     is the current card you have to beat
 3. Type in the value of whatever card you want to play
-4. The computer player's card is displayed
-5. Then your current score and the computer player's current score
-6. Your can only enter a card that is currently in your deck
-7. If no one wins a round the score is accumulated for the next round
-8. After 13 rounds the winner is displayed  
+4. This repeats for the other player, or the computer player makes a move.
+5. The turn's winner is displayed
+6. If no one wins a round the score is accumulated for the next round
+7. After 13 rounds the winner is displayed  
 
 
 # An annotated bibliography of all sources you used to develop your project
-
+HipsterDashie. (2021, May 28). 
+*I typed up a player's guide for Bastion's Breach - here's the doc!*. 
+[Online forum post]. Reddit. https://www.reddit.com/r/AngelsWithScalyWings/comments/nn9u91/i_typed_up_a_players_guide_for_bastions_breach/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
 # Functions written, skills demonstrated
 What function each group member wrote, and the skill they claim.
-| Name         | Function               |  Skill demonstrated                  
-| ------------ | ---------------------- | ------------------------------------ 
-| M. Carr      |                        |
-| M. Carr      |                        |
-| O. Elesinnla | validate_input         | Conditional Expressions 
-| O. Elesinnla | turn method            | Composition of two custom classes
-| D. Fonseca   |                        |
-| D. Fonseca   |                        |
-| D. Mcintosh  | shuffle_and_deal()     | List comprehensions
-| D. Mcintosh  |                        |
-
+| Function                            | Author         | Skill demonstrated
+| ----------------------------------- | -------------- | --------------------------------------
+| computerlogic.`choose_next_card`      | M. Carr        | Default, keyword arguments
+| players.HumanPlayer.`turn`            | M. Carr        | Set operations (difference)
+| gameplay.Round.`determine_winner`     | D. Fonseca     | Key function (max)
+| gameplay.Round.`turns`                | D. Fonseca     | f-strings 
+| players.HumanPlayer.`validate_input`  | O. Elesinnla   | Conditional expressions
+| players.ComputerPlayer.`__str__`      | O. Elesinnla   | Magic method other than __init__
+| deck.`deal_three_suits `              | D. Mcintosh    | Sequence unpacking
+| deck.`full_deck`                      | D. Mcintosh    | List comprehension
