@@ -54,6 +54,6 @@ What function each group member wrote, and the skill they claim.
 | gameplay.Round.`determine_winner`     | D. Fonseca     | Key function (max)
 | gameplay.Round.`turns`                | D. Fonseca     | f-strings 
 | players.HumanPlayer.`validate_input`  | O. Elesinnla   | Conditional expressions
-| players.ComputerPlayer.`__str__`      | O. Elesinnla   | Magic method 
+| players.HumanPlayer.`str` and `repr`  | O. Elesinnla   | Magic Method 
 | deck.`deal_three_suits `              | D. Mcintosh    | Sequence unpacking
 | deck.`full_deck`                      | D. Mcintosh    | List comprehension
