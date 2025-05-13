@@ -1,6 +1,6 @@
 # CLI Game: Bastion's Breach
 By Team 202 INST 326: 
-Dayonte Mcintosh, Oluwanifemi Elesinnla, Diego Fonseca, Marshal Carr
+Marshal Carr, Dayonte Mcintosh, Diego Fonseca, Oluwanifemi Elesinnla
 
 # Overview
 Our recreation of Bastion's Breach in Python features the game's full mechanics,
@@ -13,14 +13,10 @@ All of the program files in our repository and their use.
 | ------------------ | --------------------------------------------------------
 |cards.py            | Creation of Card class and assigning values to cards
 |computerlogic.py    | Defines the computer player's behavior
-|deck.py             | Designs the distrubtion of the cards to the player and 
-                                the middle deck
-|gameplay.py         | Takes care of each round of the game, the scoring logic
-                                and the game information to display.
-|players.py          | Takes care of getting input of players' choices, whether 
-                                they are a human player or a computer.
-|main.py             | Takes care of the entire logic of the game and how the
-                               game actually runs from beginning to end
+|deck.py             | Designs the distrubtion of the cardsto the player and the middle deck
+|gameplay.py         | Takes care of each round of the game the scoring logic and the game information to display.
+|players.py          | Takes care of getting input of players' choices, whether they are a human player or a computer.
+|main.py             | Takes care of the entire logic of the game and how the game actually runs from beginning to end
 |test_players.py     | Test file for the validate input method and magic methods
 |test_screens.py     | Test file for the display screens 
 
@@ -53,14 +49,11 @@ HipsterDashie. (2021, May 28).
 What function each group member wrote, and the skill they claim.
 | Function                              | Author         | Skill demonstrated
 | -----------------------------------   | -------------- | ---------------------
-| computerlogic.`choose_next_card`      | M. Carr        | Default, 
-                                                           keyword arguments
-| players.HumanPlayer.`turn`            | M. Carr        | Set operations 
-                                                           (difference)
+| computerlogic.`choose_next_card`      | M. Carr        | Default, keyword arguments
+| players.HumanPlayer.`turn`            | M. Carr        | Set operations (difference)
 | gameplay.Round.`determine_winner`     | D. Fonseca     | Key function (max)
 | gameplay.Round.`turns`                | D. Fonseca     | f-strings 
-| players.HumanPlayer.`validate_input`  | O. Elesinnla   | Conditional 
-                                                           expressions
+| players.HumanPlayer.`validate_input`  | O. Elesinnla   | Conditional expressions
 | players.ComputerPlayer.`__str__`      | O. Elesinnla   | Magic method 
 | deck.`deal_three_suits `              | D. Mcintosh    | Sequence unpacking
 | deck.`full_deck`                      | D. Mcintosh    | List comprehension
