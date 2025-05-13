@@ -13,10 +13,14 @@ All of the program files in our repository and their use.
 | ------------------ | --------------------------------------------------------
 |cards.py            | Creation of Card class and assigning values to cards
 |computerlogic.py    | Defines the computer player's behavior
-|deck.py             | Designs the distrubtion of the cards to the player and the middle deck
-|gameplay.py         | Takes care of each round of the game, the scoring logic and the game information to display.
-|players.py          | Takes care of getting input of players' choices, whether they are a human player or a computer
-|main.py             | Takes care of the entire logic of the game and how the game actually runs from beginning to end
+|deck.py             | Designs the distrubtion of the cards to the player and 
+                                the middle deck
+|gameplay.py         | Takes care of each round of the game, the scoring logic
+                                and the game information to display.
+|players.py          | Takes care of getting input of players' choices, whether 
+                                they are a human player or a computer.
+|main.py             | Takes care of the entire logic of the game and how the
+                               game actually runs from beginning to end
 |test_players.py     | Test file for the validate input method and magic methods
 |test_screens.py     | Test file for the display screens 
 
@@ -43,17 +47,20 @@ On Windows, type the following into your terminal:
 # An annotated bibliography of all sources you used to develop your project
 HipsterDashie. (2021, May 28). 
 *I typed up a player's guide for Bastion's Breach - here's the doc!*. 
-[Online forum post]. Reddit. https://www.reddit.com/r/AngelsWithScalyWings/comments/nn9u91/i_typed_up_a_players_guide_for_bastions_breach/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+[Online forum post]. Reddit. https://www.reddit.com/r/AngelsWithScalyWings/commentsnn9u91i_typed_up_a_players_guide_for_bastions_breach/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
 # Functions written, skills demonstrated
 What function each group member wrote, and the skill they claim.
-| Function                            | Author         | Skill demonstrated
-| ----------------------------------- | -------------- | --------------------------------------
-| computerlogic.`choose_next_card`      | M. Carr        | Default, keyword arguments
-| players.HumanPlayer.`turn`            | M. Carr        | Set operations (difference)
+| Function                              | Author         | Skill demonstrated
+| -----------------------------------   | -------------- | ---------------------
+| computerlogic.`choose_next_card`      | M. Carr        | Default, 
+                                                           keyword arguments
+| players.HumanPlayer.`turn`            | M. Carr        | Set operations 
+                                                           (difference)
 | gameplay.Round.`determine_winner`     | D. Fonseca     | Key function (max)
 | gameplay.Round.`turns`                | D. Fonseca     | f-strings 
-| players.HumanPlayer.`validate_input`  | O. Elesinnla   | Conditional expressions
-| players.ComputerPlayer.`__str__`      | O. Elesinnla   | Magic method other than __init__
+| players.HumanPlayer.`validate_input`  | O. Elesinnla   | Conditional 
+                                                           expressions
+| players.ComputerPlayer.`__str__`      | O. Elesinnla   | Magic method 
 | deck.`deal_three_suits `              | D. Mcintosh    | Sequence unpacking
 | deck.`full_deck`                      | D. Mcintosh    | List comprehension
